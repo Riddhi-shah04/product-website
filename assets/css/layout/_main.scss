@@ -1,0 +1,311 @@
+main{
+    padding-top: 5.125rem;
+    
+    @include mq($tablet){
+        padding-top: 5.625rem;
+    }
+    @include mq($desktop){
+        padding-top: 10.125rem;
+    }
+}
+
+// about section
+.about-section{
+    padding-top: 3.125rem;
+    padding-bottom: 3.125rem;
+    background-color: var(--cod-black-color);
+    
+    @include mq($desktop){
+        padding-top: 6.25rem;
+        padding-bottom: 3.75rem;
+    }
+    .picture-div{
+        justify-content: center;
+    }
+    .about-image{
+        margin-bottom: 1.25rem;
+        padding-top: 0.125rem;
+
+        @include mq($tablet){
+            margin-bottom: 0;
+        }
+        @include mq($desktop){
+            margin-left: -1.875rem;
+            justify-content: center;
+        }
+        figure{
+            max-height: 39.688rem;
+            max-width: 41.688rem;
+            padding-bottom: 1.25rem;
+
+            @include mq($tablet){
+                padding-bottom: 0;
+            }
+            img{
+                width: 100%;
+                height:100%;
+            }
+        }
+    }
+
+    .about-text{
+        @include mq($desktop){
+            padding-left: 0.75rem;
+        }
+        .wrapper{
+            margin-bottom: 1.5rem;
+            
+            @include mq($desktop){
+                margin-bottom: 2.438rem;
+            }
+        }
+        .h1{
+            font-size:2.35rem;
+            font-weight: 700;
+            color: var(--red-color);
+            padding-bottom: 0.625rem;
+            margin-bottom: 0;
+
+            @include mq($tablet){
+                @include font-size(2.813rem, 3.125rem);
+            }
+            @include mq($ipad){
+                @include font-size(3.125rem, 3.438rem);
+            }
+            @include mq($desktop){
+                @include font-size(3.75rem, 4.063rem);
+            }
+            @include mq($desktop-lg){
+                @include font-size(5.313rem, 6.438rem);
+            }
+
+            span{
+                margin-left: 0.75rem;
+
+                @include mq($desktop){
+                    margin-left: 1.5rem;
+                }
+            }
+
+            &:last-child{
+                position: relative;
+
+                &::after{
+                    content: '';
+                    position: absolute;
+                    display: block;
+                    height: 0.25rem;
+                    width: 46%;
+                    background-color: var(--white-color);
+                    bottom:-0.313rem;
+                }
+            }
+
+            + .h1{
+                padding-bottom: 1.05rem;
+                
+                @include mq($desktop){
+                    padding-bottom: 1.438rem;
+                }
+            }
+
+        }
+
+        h2, p{
+            color:var(--white-color);
+        }
+        h2{
+            margin-bottom: 0.875rem;
+            font-weight: 600;
+
+            @include mq($desktop){
+                margin-bottom: 1.125rem;
+            }
+        }
+        p{
+            margin-bottom: 1.875rem;
+            font-weight: 300;
+
+            @include mq($desktop){
+                margin-bottom: 4.188rem;
+            }
+
+        }
+    }
+}
+
+// service section
+.service-section{
+    padding-top: 3.125rem;
+    padding-bottom: 3.125rem;
+    background-color: var(--mercury-color);
+    
+    @include mq($desktop){
+        padding-top: 9.375rem;
+        padding-bottom: 8.125rem;
+    }
+
+    .service-title{
+        position: relative;
+        margin-bottom: 3.125rem;
+
+        @include mq($desktop){
+            margin-bottom: 6.625rem;
+        }
+        &::after{
+            content: "";
+            display: block;
+            position: absolute;
+            height: 0.25rem;
+            width: 42%;
+            background-color: var(--black-color);
+            left: 29%;
+        }
+
+        .h1{
+            color:var(--red-color);
+            @include text-center;
+            padding-bottom: 0.938rem;
+            span{
+                margin-right: 0.75rem;
+                @include mq($desktop) {
+                    margin-right: 1.375rem;
+                }
+            }
+        }
+    }
+
+    .service-grid{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        row-gap: 1.875rem;
+        padding-bottom: 1.875rem;
+
+
+        @include mq($tablet){
+            grid-template-columns: repeat(2, 1fr);
+            column-gap: 1.875rem;
+            row-gap: 1.875rem;
+            padding-bottom: 2.5rem;
+
+        }
+
+        @include mq($desktop){
+            grid-template-columns: repeat(3, 1fr);
+            column-gap: 4.625rem;
+            row-gap: 4.563rem;
+            padding-bottom: 3.625rem;
+
+        }
+        .service-grid-box{
+            position: relative;
+            cursor: pointer;
+        
+            figure{
+                position: relative;
+                max-width: 34.375rem;
+                max-height: 34.375rem;
+
+                img{
+                    width:100%;
+                    height:100%;
+                }
+            }
+            .overlay{
+                background-color: rgba(0, 0, 0, 0.6);
+                position: absolute;
+                padding:1.25rem;
+                opacity: 0;
+                color: var(--white-color);
+                z-index: 10;
+                inset: 0 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                @include transition(.3s, ease-in-out);
+            }
+
+            &:hover{
+                .overlay{
+                    opacity:1;
+                }
+            }
+        }
+    }
+}
+
+// contact section
+
+.contact-section{
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+
+    @include mq($tablet){
+        padding-top: 6rem;
+        padding-bottom: 6rem;
+    }
+    
+    @include mq($desktop){
+        padding-top: 10.75rem;
+        padding-bottom: 9.313rem;
+    }
+    .container{
+        display: flex;
+        flex-direction: column;
+
+        @include mq($desktop){
+            flex-direction: row;
+        }
+    }
+
+    .contact-text{
+        width:100%;
+        padding-bottom: 1.25rem;
+        
+        @include mq($desktop){
+            padding-bottom: 0;
+            width:50%
+        }
+        .h1{
+            color:var(--red-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            position: relative;
+            
+            @include mq($desktop){
+                padding-bottom: 1.563rem;
+                margin-bottom: 2.063rem;
+            }
+
+            span{
+                margin-right: 1.25rem;
+            }
+            @include mq($desktop){
+                margin-top: -1.375rem;
+            }
+
+            &::after{
+                content: '';
+                display: block;
+                position: absolute;
+                height:0.25rem;
+                background-color: var(--black-color);
+                width:46%;
+                bottom:0;
+            }
+        }
+        h4{
+            font-weight: 500;
+        }
+    }
+
+    .contact-form{
+        width:100%;
+
+        @include mq($desktop){
+            width:50%;
+            margin-left: 3.75rem;
+            justify-content: center;
+        }
+    }
+}

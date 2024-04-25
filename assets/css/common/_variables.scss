@@ -1,0 +1,28 @@
+:root{
+
+    // color variables
+    --white-color: #ffffff;
+    --cod-black-color: #1a1a1a;
+    --red-color:#ff0000;
+    --transparent-black-color: rgba(0, 0, 0, 0.161);
+    --black-color: #000000;
+    --mercury-color: #e6e6e6;
+    --trout-color:#4b5059;
+
+    // font-family variables
+    --primary-font: 'Montserrat', sans-serif;
+
+    // font-weight
+    --weight-400:400;
+    --weight-500:500;
+    --weight-600:600;
+    --weight-700:400;
+}
+
+// breakpoint variables
+$mobile: 576px;
+$tablet: 768px;
+$ipad: 991px;
+$desktop: 1280px; 
+$desktop-lg:1440px;
+$desktop-xlg:1600px;

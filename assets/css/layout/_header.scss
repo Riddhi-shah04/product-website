@@ -1,0 +1,160 @@
+header{
+    box-shadow: 0 0 0.625rem #00000029;
+    padding-top:0.938rem;
+    padding-bottom: 0.938rem;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 100;
+    background-color: var(--white-color);
+    @include transition(.2s, ease);
+
+    @include mq($tablet){
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+    
+    @include mq($desktop){
+        padding-top:2.938rem;
+        padding-bottom: 2.938rem;
+    }
+
+    @include mq($desktop-lg){
+        padding-top:3rem;
+        padding-bottom: 2.938rem;
+    }
+    
+    .container{
+        justify-content: space-between;
+    }
+
+    .header-left{
+        img{
+            width: 8.873rem;
+            height: 3.113rem;
+
+            @include mq($desktop){
+                width:10.873rem;
+                height:4.113rem;
+            }
+
+            @include mq($desktop-lg){
+                width:12.873rem;
+                height:4.113rem;
+            }
+        }
+    }
+    .header-right{
+        display: none;
+
+        @include mq($ipad){
+            display: flex;
+
+            }
+        }
+        .menu{
+            padding-right:1.25rem;
+
+            @include mq($ipad){
+                padding-left:0.625rem;
+            }
+            @include mq($desktop-lg){
+                padding-left:0;
+            }
+            li{
+                &:not(:last-child){
+                padding-right: 1.25rem;
+
+                @include mq($desktop){
+                    padding-right: 1.875rem;
+                }
+
+                @include mq($desktop-lg){
+                    padding-right: 5rem;
+                }
+            }
+            a{
+                font-size: 0.875rem;
+                font-weight: 600;
+                @include transition(.2s, ease-out);
+
+                @include mq($desktop){
+                    font-size: 1.125rem;
+                }
+
+                &:hover{
+                    color:var(--red-color);
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+    .buttons{
+        display: none;
+
+        @include mq($ipad){
+            display: flex;
+        }
+        li{
+            &:not(:last-child){
+            padding-right: 1.25rem;
+
+            @include mq($desktop){
+                padding-right: 1.875rem;
+            }
+            }
+            span{
+                font-size: 0.875rem;
+                line-height: 1rem;
+                
+                @include mq($desktop){
+                    font-size: 1.125rem;
+                    line-height: 1.375rem;
+                }
+            }
+
+            .btn-secondary{
+                color: var(--white-color);
+
+                &:hover{
+                    background-color: transparent;
+                    color: black;
+                }
+            }
+        }
+        .button-group{
+            column-gap: 1.25rem;
+            align-items: center;
+        }
+
+        .btn-icon{
+            border-width: 0.125rem;
+            &:not(:last-child){
+                margin-right: 0.625rem;
+            }
+        }
+    }
+    .toggle-menu{
+        height: 3.125rem;
+        width: 3.125rem;
+        border: none;
+        font-size: 1.25rem;
+        cursor: pointer;
+
+        @include mq($ipad){
+            display: none;
+        }
+        &:hover{
+            border: 1px solid var(--red-color);
+            color: var(--red-color);
+        }
+    }
+
+}
+.active-header{
+    @include mq($ipad) {
+        padding-top:30px;
+        padding-bottom:30px;
+    }
+}

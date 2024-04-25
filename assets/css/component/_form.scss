@@ -1,0 +1,126 @@
+.contact-form{
+    form{
+        .form-row{
+            column-gap: 1.875rem;
+            &:not(:last-child){
+                margin-bottom: 1.75rem;
+            }
+            flex-direction: column;
+            row-gap: 1.875rem;
+
+            @include mq($tablet){
+                flex-direction: row;
+            }
+
+            figure{
+                max-width: 12.5rem;
+                max-height:3.75rem;
+                img{
+                    height:100%;
+                    width:100%;
+                }
+            }
+        }
+        .form-group {
+            position: relative;
+            
+            input {
+                border: 0.063rem solid var(--cod-black-color);
+                width: 100%;
+                font-size: 1rem;
+                padding: 1rem 0.5rem;
+                outline: none;
+                background: transparent;
+                height: 3.813rem;
+                
+                &:is(:focus, :valid) {
+                    border: 0.063rem solid var(--red-color);
+                    
+                    + label {
+                        top: 0;
+                        padding: 0 0.25rem;
+                        @include font-size(0.875rem, 1.125rem);
+                        color: var(--red-color);
+                        background: #ffffff;
+                    }
+                }
+            }
+            label {
+                @include font-family(var(--font-primary), 500);
+                @include font-size(1.125rem, 1.375rem);
+                position: absolute;
+                top: 50%;
+                left: 0.5rem;
+                padding: 0 0.375rem;
+                color: rgba(26, 26, 26, 0.6);
+                pointer-events: none;
+                transform: translateY(-50%);
+                transition: all 0.3s ease-in-out;
+            }
+            textarea{
+                border: 0.063rem solid var(--cod-black-color);
+                resize: none;
+                width: 100%;
+                height: 8rem;
+                margin-bottom: 1.75rem;
+                padding: 1.5rem 0.75rem;
+                font-size: 1rem;
+                outline:none;
+                
+                @include mq($desktop){
+                    height: 13.438rem;
+                }
+                &:focus {
+                    border: 0.063rem solid var(--red-color) !important;
+      
+                    + label {
+                        top: 0;
+                        padding: 0 0.375rem;
+                        color: var(--red-color);
+                        background: #ffffff;
+                        @include font-size(0.875rem, 1.125rem);
+
+                      }
+                  }
+                }
+        } 
+        .input-width{
+            width:100%;
+            @include mq($ipad){
+                max-width: 50%;
+            }
+            @include mq($desktop){
+                max-width: 26.25rem;
+            }
+        }
+        .input-width-full{
+            width:100%;
+
+            @include mq($desktop){
+                max-width: 26.25rem;
+            }
+        }
+        label{
+            &.active-label{
+                top:0 !important;
+                padding: 0 0.375rem;
+                color: var(--red-color);
+                background: #ffffff;
+                @include font-size(0.875rem, 1.125rem);
+          }
+        }
+    }
+}
+.textarea-label{
+    textarea{
+        &:focus{
+            + label{
+                top: 0 !important;
+            }
+        }
+    }
+    label{
+        top:10% !important;
+
+    }
+}

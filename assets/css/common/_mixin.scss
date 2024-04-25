@@ -1,0 +1,445 @@
+@mixin font-family($face, $weight){
+    font-family: $face;
+    font-weight: $weight;
+}
+
+@mixin font-size($font-size-value, $line-height-value){
+    font-size: $font-size-value;
+    line-height: $line-height-value;
+}
+
+@mixin body-font{
+    @include font-family(var(--primary-font), 400);
+    @include font-size(var(--size-17), 1.25rem);
+    color: var(--black-color);
+}
+
+@mixin container-box($width){
+    max-width: $width;
+    padding:0 1.25rem;
+    margin: 0 auto;
+}
+
+@mixin font-xlg{
+    @include font-family(var(--primary-font), 700);
+    @include font-size(1.8rem, 2rem);
+    
+    @include mq($tablet){
+        @include font-size(2.813rem, 3.125rem);
+    }
+    @include mq($ipad){
+        @include font-size(3.125rem, 3.438rem);
+    }
+    @include mq($desktop){
+        @include font-size(3.75rem, 4.063rem);
+    }
+    @include mq($desktop-lg){
+        @include font-size(5.313rem, 6.438rem);
+    }
+}
+
+@mixin font-lg{
+    @include font-family(var(--primary-font), 700);
+    @include font-size(1.75rem, 2.188rem);
+
+    @include mq($tablet){
+        @include font-size(2.188rem, 2.5rem);
+    }
+    @include mq($ipad){
+        @include font-size(2.5rem, 2.813rem);
+    }
+    @include mq($desktop){
+        @include font-size(3rem, 3.625rem);
+    }
+}
+
+@mixin font-md{
+    @include font-family(var(--primary-font), 700);
+    @include font-size(2.188rem, 2.813rem);
+
+    @include mq($tablet){
+        @include font-size(2.375rem, 3rem);
+    }
+    @include mq($ipad){
+        @include font-size(2.625rem, 3.25rem);
+    }
+    @include mq($desktop){
+        @include font-size(2.813rem, 3.438rem);
+    }
+}
+
+@mixin font-sm{
+    @include font-family(var(--primary-font), 700);
+    @include font-size(0.875rem, 1.125rem);
+    
+    @include mq($tablet){
+        @include font-size(1rem, 1.25rem);
+    }
+    @include mq($ipad){
+        @include font-size(1.125rem, 1.375rem);
+    }
+    @include mq($desktop){
+        @include font-size(1.25rem, 1.5rem);
+    }
+}
+
+@mixin font-xs{
+    @include font-family(var(--primary-font), 500);
+    @include font-size(0.875rem, 1.125rem);
+    @include mq($ipad){
+        @include font-size(1rem, 1.25rem);
+    }
+    @include mq($desktop){
+        @include font-size(1.125rem, 1.375rem);
+    }
+}
+
+@mixin font-xxs{
+    @include font-family(var(--primary-font), 400);
+    @include font-size(0.75rem, 1rem);
+    
+    @include mq($desktop){
+        @include font-size(0.875rem, 1.125rem);
+    }
+}
+
+@mixin h1{
+    @include font-xlg;
+}
+
+@mixin h2{
+    @include font-lg;
+}
+
+@mixin h3{
+    @include font-md;
+}
+
+@mixin h4{
+    @include font-sm;
+}
+
+@mixin h5{
+    @include font-xs;
+}
+@mixin h6{
+    @include font-xxs;
+}
+
+@mixin rounded($radius){
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -o-border-radius: $radius;
+    border-radius: $radius;
+}
+
+@mixin opacity($opacity) {
+    -webkit-opacity: $opacity;
+    -moz-opacity: $opacity;
+    -o-opacity: $opacity;
+    -ms-opacity: $opacity;
+    opacity: $opacity;
+}
+
+@mixin box-shadow($x-axis, $y-axis, $blur, $color) {
+    -ms-box-shadow: $x-axis $y-axis $blur $color;
+    -o-box-shadow: $x-axis $y-axis $blur $color;
+    -webkit-box-shadow: $x-axis $y-axis $blur $color;
+    -moz-box-shadow: $x-axis $y-axis $blur $color;
+    box-shadow: $x-axis $y-axis $blur $color;
+}
+
+@mixin border($b-size, $b-color){
+    border: $b-size solid $b-color;
+}
+
+@mixin text-clamp($line) {
+    display: -webkit-box;
+    -webkit-line-clamp: $line;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    width: 100%;
+}
+
+@mixin flexbox{
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+
+@mixin flex-row{
+    -webkit-box-orient:horizontal;
+    -webkit-box-direction:normal;
+        -ms-flex-direction:row;
+            flex-direction:row;
+}
+
+@mixin flex-col{
+    -webkit-box-orient:vertical;
+    -webkit-box-direction:normal;
+        -ms-flex-direction:column;
+            flex-direction:column;
+}
+
+@mixin flexCenter() {
+    @include flexbox;
+    @include align-item-center;
+    @include justify-center;
+}
+
+@mixin flex-wrap{
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+}
+
+@mixin justify-center{
+    -webkit-box-pack:center;
+    -ms-flex-pack:center;
+        justify-content:center;
+}
+
+
+@mixin just-end {
+    justify-content: end;
+}
+
+@mixin just-start {
+    justify-content: start;
+}
+
+@mixin space-between {
+    justify-content: space-between;
+}
+
+@mixin align-item-center {
+    align-items: center;
+}
+
+@mixin align-item-end {
+    align-items: flex-end;
+}
+
+@mixin align-item-start {
+    align-items: flex-start;
+}
+
+@mixin text-center{
+    text-align: center;
+}
+
+@mixin mq($breakpoint){
+    @media(min-width: $breakpoint){
+        @content;
+    }
+}
+
+@mixin box-shadow-none {
+    -ms-box-shadow: none;
+    -o-box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+@mixin transition($seconds, $timing) {
+    -webkit-transition: all $seconds $timing ;
+    -moz-transition: all $seconds $timing ;
+    -ms-transition: all $seconds $timing ;
+    -o-transition: all $seconds $timing;
+    transition: all $seconds $timing;
+}
+
+@mixin button {
+    @include flexbox();
+    @include justify-center();
+    @include align-item-center();
+    @include font-family(var(--primary-font), 600);
+    outline: none;
+    cursor: pointer;
+    text-decoration: none !important;
+    position: relative;
+    outline: none;
+    text-transform: capitalize;
+    border: 0.063rem solid transparent;
+    @include transition(0.3s, ease);
+    @include box-shadow-none;
+    @include font-size(0.875rem, 1.125rem);
+    
+    @media only screen and (min-width: $ipad) {
+        min-height: 2.813rem;
+    }
+    
+    @include mq($desktop){
+        padding: 0.532rem 1.075rem;
+        @include font-size(1.125rem, 1.375rem);
+    }
+}
+
+@mixin btn-primary {
+    background-color: var(--red-color);
+    color: var(--white-color);
+    border-color: var(--red-color);
+    &:hover {
+        background-color: transparent;
+        color: var(--red-color);
+    }
+}
+
+@mixin btn-secondary {
+    background-color: var(--black-color);
+    color: var(--white-color);
+    border-color: var(--black-color);
+    &:hover {
+        background-color: transparent;
+        color: var(--black-color);
+        border-color: var(--black-color);
+    }
+}
+
+@mixin btn-outline {
+    padding: 0.5rem 0.938rem;
+    background-color: transparent;
+    color: var(--red-color);
+    border: 0.125rem solid var(--red-color);
+    &:hover {
+        background-color: var(--red-color);
+        color: var(--white-color);
+    }
+}
+
+@mixin btn-extra-large {
+    max-width: 46.375rem;
+    width: 100%;
+    height: 3.125rem;
+    @media only screen and (min-width: $ipad) {
+        height: 4.375rem;
+    }
+}
+
+@mixin btn-large {
+    max-width: 44.563rem;
+    width: 100%;
+}
+
+@mixin btn-big {
+    width: 9rem;
+    font-size: 0.75rem;
+    padding: 0.5rem 0.625rem;
+    
+    @include mq($desktop){
+        width: 12rem;
+        font-size: 0.875rem;
+        padding: 0.5rem 0.75rem;
+    }
+    
+    @include mq($desktop-lg){
+        padding: 0.5rem 0.938rem;
+        font-size: 1.125rem;
+        width: 15rem;
+    }
+}
+
+@mixin btn-medium {
+    width: 8.25rem;
+
+    @include mq($desktop){
+        width: 11.25rem;
+    }
+}
+
+@mixin btn-small {
+    width: 7rem;
+
+    @include mq($desktop){
+        width: 9rem;
+    }
+    @include mq($desktop-lg){
+        width: 10rem;
+    }
+}
+
+@mixin btn-icon {
+    width: 2.813rem;
+    color:var(--black-color);
+    border-color: var(--black-color);
+    &:hover{
+     background-color:black;
+     color:white;   
+    }
+}
+
+@mixin row {
+    @include flexbox;
+    @include flex-row;
+    @include flex-wrap;
+    margin: 0 -0.938rem;
+    @media only screen and (min-width:$ipad) {
+        margin: 0 -1.25rem;
+    }
+    .d-col {
+        @include flexbox;
+        @include flex-wrap;
+        padding: 0 0.938rem;
+        width: 100%;
+        margin-bottom: 0.938rem;
+        @media only screen and (min-width: $tablet) {
+            margin-bottom: 1.25rem;
+        }
+        @media only screen and (min-width: $desktop) {
+            margin-bottom: 2.5rem;
+            padding: 0 1.25rem;
+        }
+        &.d-col-2 {
+            width: 100%;
+            @media only screen and (min-width: $tablet) {
+                width: 50%;
+            }
+        }
+        &.d-col-3 {
+            width: 100%;
+            @media only screen and (min-width: $tablet) {
+                width: 50%;
+            }
+            @media only screen and (min-width: $desktop) {
+                width: 33.33%;
+            }
+        }
+        &.d-col-4 {
+            width: 100%;
+            @media only screen and (min-width: $tablet) {
+                width: 50%;
+            }
+            @media only screen and (min-width: $ipad) {
+                width: 33.33%;
+            }
+            @media only screen and (min-width: $desktop) {
+                width: 25%;
+            }
+        }
+        &.d-col-33 {
+            width: 100%;
+            @media only screen and (min-width: $desktop-lg) {
+                width: 33.33%;
+            }
+        }
+        &.d-col-66 {
+            width: 100%;
+            @media only screen and (min-width: $desktop-lg) {
+                width: 66.66%;
+            }
+        }
+    }
+}
+
+@mixin box($property) {
+    box-sizing: $property;
+    -moz-box-sizing: $property;
+    -webkit-box-sizing: $property;
+    -o-box-sizing: $property;
+}
+
+@mixin font-weight($weight){
+    font-weight: $weight;
+}

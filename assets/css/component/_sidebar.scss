@@ -1,0 +1,34 @@
+aside{
+    width: 18.75rem;
+    background-color: black;
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    right: -18.75rem;
+    height: 100%;
+    @include transition(0.5s, ease);
+
+    .menu{
+        padding: 5rem 0;
+        flex-direction: column;
+
+        li{
+            padding: 1.25rem;
+
+            &:hover{
+                background-color: var(--red-color);
+            }
+        }
+        a{
+            color:var(--white-color);
+        }
+    }
+
+    button{
+        background-color: var(--red-color);
+        color: var(--white-color);
+        border:none;
+        padding:0.938rem 1.25rem;
+        cursor: pointer;
+    }
+}
