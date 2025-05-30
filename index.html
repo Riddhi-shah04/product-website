@@ -32,14 +32,17 @@
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-
-        gtag('config', 'G-RGEH39CK25');
+        gtag('config', 'G-RGEH39CK25', { send_page_view: false });
     </script>
     <script>
-    // Wait a bit to ensure gtag is ready
     gtag('get', 'G-RGEH39CK25', 'client_id', function(clientId) {
-        console.log(clientId);
+    gtag('event', 'page_view', {
+      client_id: clientId,
+      page_title: document.title,
+      page_location: window.location.href,
+      page_path: window.location.pathname
     });
+  });
     </script>
 </head>
 <body>
