@@ -9,7 +9,7 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-RGEH39CK25"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
+  function gtag(){dataLayer.push(arguments);}
 
 gtag('js', new Date());
 
@@ -29,7 +29,8 @@ gtag('get', 'G-RGEH39CK25', 'client_id', function(clientId) {
       session_id: sessionId,
       page_title: document.title,
       page_location: window.location.href,
-      page_path: window.location.pathname
+      page_path: window.location.pathname,
+      debug_mode: true
     });
   });
 });
