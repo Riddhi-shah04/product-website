@@ -16,24 +16,23 @@ gtag('js', new Date());
 // Disable automatic page_view so you can send manually
 gtag('config', 'G-RGEH39CK25', { send_page_view: false });
 
-// Fetch client_id
-gtag('get', 'G-RGEH39CK25', 'client_id', function(clientId) {
-  // Fetch session_id
-  gtag('get', 'G-RGEH39CK25', 'session_id', function(sessionId) {
-    console.log('client_id:', clientId);
-    console.log('session_id:', sessionId);
+setTimeout(() => {
+  gtag('get', 'G-RGEH39CK25', 'client_id', function(clientId) {
+    gtag('get', 'G-RGEH39CK25', 'session_id', function(sessionId) {
+      console.log('client_id:', clientId);
+      console.log('session_id:', sessionId);
 
-    // Now send manual page_view event with both
-    gtag('event', 'page_view', {
-      client_id: clientId,
-      custom_session_id: sessionId,
-      page_title: document.title,
-      page_location: window.location.href,
-      page_path: window.location.pathname,
-      debug_mode: true
+      gtag('event', 'page_view', {
+        client_id: clientId,
+        custom_session_id: sessionId, // custom dim name
+        page_title: document.title,
+        page_location: window.location.href,
+        page_path: window.location.pathname,
+        debug_mode: true
+      });
     });
   });
-});
+}, 300); 
 
 </script>
     <!-- Google Tag Manager -->
