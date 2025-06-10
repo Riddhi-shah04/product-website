@@ -22,7 +22,7 @@ setTimeout(() => {
       console.log('client_id:', clientId);
       console.log('session_id:', sessionId);
 
-      gtag('event', 'page_view', {
+      gtag('event', 'manual_page_view', {
         client_id: clientId,
         custom_session_id: sessionId, // custom dim name
         page_title: document.title,
