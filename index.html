@@ -18,17 +18,13 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-RGEH39CK25');
+  setTimeout(function () {
     gtag('get', 'G-RGEH39CK25', 'session_id', function(sessionId) {
-      console.log('session_id:', sessionId);
-
-      gtag('event', 'test_event', {
-        custom_session_id: sessionId, // custom dim name
-        page_title: document.title,
-        page_location: window.location.href,
-        page_path: window.location.pathname,
-        debug_mode: true
-      });
+      window.sessionId = sessionId;
+      console.log('Session ID:', sessionId);
+      dataLayer.push({ session_id: sessionId });
     });
+  }, 1000);
 </script>
 </head>
 <body>
