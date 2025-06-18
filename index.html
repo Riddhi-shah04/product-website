@@ -6,26 +6,64 @@
     <title>Global Product Makers</title>
     <link rel="stylesheet" href="assets/css/pages/index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RGEH39CK25"></script>
+    <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+
+  gtag('js', new Date());
+
+  gtag('config', 'G-RGEH39CK25', { send_page_view: false });
+
+  // Fetch GA4 identifiers
+  let sessionId = 'NA';
+  let clientId = 'NA';
+
+  gtag('get', 'G-RGEH39CK25', 'session_id', function(sid) {
+    sessionId = sid;
+    window.sessionId = sid;
+
+    gtag('get', 'G-RGEH39CK25', 'client_id', function(cid) {
+      clientId = cid;
+      window.clientId = cid;
+
+      console.log('Session ID:', sessionId);
+      console.log('Client ID:', clientId);
+
+      // Fire page_view manually
+      gtag('event', 'page_view', {
+        custom_session_id: sessionId,
+        client_id_event: clientId
+      });
+    });
+  });
+
+  // Attach click listener directly
+  document.addEventListener('DOMContentLoaded', function () {
+    const headerLink = document.querySelector("body > header > div > div.header-left > a");
+
+    if (headerLink) {
+      headerLink.addEventListener('click', function () {
+        gtag('event', 'header_logo_click', {
+          custom_session_id: window.sessionId || 'NA',
+          custom_client_id: window.clientId || 'NA'
+        });
+        console.log('header_logo_click event fired');
+      });
+    } else {
+      console.warn('Header logo element not found.');
+    }
+  });
+</script>
     <!-- Google Tag Manager -->
-        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    <!-- <script>
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
         j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','GTM-M85PJWPS');</script>
+        })(window,document,'script','dataLayer','GTM-M85PJWPS');
+    </script> -->
     <!-- End Google Tag Manager -->
-    <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-RGEH39CK25');
-  setTimeout(function () {
-    gtag('get', 'G-RGEH39CK25', 'session_id', function(sessionId) {
-      window.sessionId = sessionId;
-      console.log('Session ID:', sessionId);
-      dataLayer.push({ session_id: sessionId });
-    });
-  }, 1000);
-</script>
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->
