@@ -6,6 +6,7 @@
     <title>Global Product Makers</title>
     <link rel="stylesheet" href="assets/css/pages/index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="script" href="event_tracking-sdk.js">
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-RGEH39CK25"></script>
     <script>
   window.dataLayer = window.dataLayer || [];
@@ -46,7 +47,7 @@
       headerLink.addEventListener('click', function () {
         gtag('event', 'header_logo_click', {
           custom_session_id: window.sessionId || 'NA',
-          custom_client_id: window.clientId || 'NA'
+          client_id_event: window.clientId || 'NA'
         });
         console.log('header_logo_click event fired');
       });
